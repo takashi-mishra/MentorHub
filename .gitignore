@@ -1,0 +1,9 @@
+# Sabhi services ke node_modules ignore karega
+**/node_modules/
+
+# Specific folder ki file ignore karne ke liye
+FrontEnd/.env
+gateway/.env
+BackEnd/.env
+logs/
+docs/*.log

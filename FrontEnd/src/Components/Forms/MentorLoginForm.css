@@ -1,0 +1,538 @@
+/* ============================================================================
+   MENTOR LOGIN FORM - MODERN CLEAN DESIGN
+   ============================================================================ */
+
+:root {
+  --primary-color: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-dark: #1e40af;
+  --accent-color: #8b5cf6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mentor-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background Elements */
+.mentor-login-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  animation: float 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mentor-login-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  animation: float 14s ease-in-out infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main Form Container */
+.mentor-login-form {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 45px 40px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-xl);
+  animation: fadeInUp 0.8s ease-out;
+  border: 1px solid var(--border-color);
+  position: relative;
+  z-index: 1;
+}
+
+/* Heading */
+.mentor-login-form h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInDown 0.6s ease-out 0.1s both;
+  letter-spacing: -0.02em;
+}
+
+/* Subtitle */
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  animation: fadeInDown 0.6s ease-out 0.15s both;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.mentor-login-form input:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+
+.mentor-login-form input:nth-of-type(2) {
+  animation-delay: 0.25s;
+}
+
+/* Input Styling */
+.mentor-login-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-color);
+  font-size: 14px;
+  outline: none;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  transition: all var(--transition-base);
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+/* Input Autofill Fix */
+.mentor-login-form input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #000000 !important;
+  caret-color: #000000;
+}
+
+.mentor-login-form input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* Input Focus State */
+.mentor-login-form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+  transform: translateY(-2px);
+}
+
+.mentor-login-form input:not(:placeholder-shown) {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Input Placeholder */
+.mentor-login-form input::placeholder {
+  color: #999;
+  font-weight: 500;
+}
+
+/* Error Messages */
+.error {
+  display: block;
+  font-size: 12px;
+  color: #dc3545;
+  margin-top: 6px;
+  font-weight: 600;
+  animation: shake 0.3s ease-out;
+}
+
+/* Shake Animation for Errors */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.25);
+  margin-top: 16px;
+  margin-bottom: 8px;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Button Hover Effect */
+.login-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-color) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+}
+
+.login-btn:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.login-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.35);
+}
+
+.login-btn:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.login-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Extra Links */
+.extra-links {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+  animation: fadeIn 0.8s ease-out 0.4s both;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.divider {
+  color: #ddd;
+}
+
+.extra-links a,
+.forgot-password {
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.signup-link,
+.register-link {
+  color: var(--primary-color);
+}
+
+.signup-link::after,
+.register-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  transition: width var(--transition-base);
+}
+
+.signup-link:hover,
+.register-link:hover {
+  color: var(--primary-dark);
+}
+
+.signup-link:hover::after,
+.register-link:hover::after {
+  width: 100%;
+}
+
+.forgot-password {
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Footer Text */
+.footer-text {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+  animation: fadeIn 0.8s ease-out 0.5s both;
+  line-height: 1.6;
+}
+
+.footer-text a {
+  color: #667eea;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.footer-text a:hover {
+  color: #764ba2;
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-40px) translateX(0px); }
+  75% { transform: translateY(-20px) translateX(-10px); }
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .mentor-login-form {
+    max-width: 100%;
+    padding: 40px 24px;
+    border-radius: 16px;
+  }
+
+  .mentor-login-form h2 {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .mentor-login-form input {
+    padding: 12px 14px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  .login-btn {
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  .extra-links {
+    margin-top: 20px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .mentor-login-wrapper {
+    padding: 16px;
+  }
+
+  .mentor-login-form {
+    padding: 32px 20px;
+    border-radius: 14px;
+  }
+
+  .mentor-login-form h2 {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .mentor-login-form input {
+    padding: 11px 12px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .login-btn {
+    padding: 11px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
+  .extra-links {
+    margin-top: 16px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .footer-text {
+    font-size: 11px;
+    margin-top: 16px;
+  }
+}
+
+/* Small Mobile (320px) */
+@media (max-width: 320px) {
+  .mentor-login-form {
+    padding: 24px 16px;
+  }
+
+  .mentor-login-form h2 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+
+  .mentor-login-form input {
+    padding: 10px 10px;
+    font-size: 12px;
+  }
+
+  .login-btn {
+    padding: 10px 10px;
+    font-size: 13px;
+  }
+}
+
+/* ============================================================================
+   DARK MODE SUPPORT
+   ============================================================================ */
+@media (prefers-color-scheme: dark) {
+  .mentor-login-form {
+    background: #1a1a1a;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+  }
+
+  .mentor-login-form h2 {
+    color: #fff;
+  }
+
+  .subtitle {
+    color: #aaa;
+  }
+
+  .mentor-login-form input {
+    background-color: #2a2a2a !important;
+    color: #fff !important;
+    border-color: #444;
+  }
+
+  .mentor-login-form input::placeholder {
+    color: #777;
+  }
+
+  .mentor-login-form input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+  }
+
+  .error {
+    color: #ff6b6b;
+  }
+
+  .footer-text {
+    color: #777;
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY
+   ============================================================================ */
+
+.mentor-login-form input:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.login-btn:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

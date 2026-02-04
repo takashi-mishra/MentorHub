@@ -1,0 +1,346 @@
+/* ============================================================================
+   USER REGISTRATION FORM - MODERN ANIMATED DESIGN
+   ============================================================================ */
+
+.register-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef7 50%, #dfe5f3 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background */
+.register-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  animation: float 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.register-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+  animation: float 14s ease-in-out infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.register-form {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+  animation: fadeInUp 0.8s ease-out;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a1a;
+  animation: fadeInDown 0.6s ease-out 0.1s both;
+  letter-spacing: -0.02em;
+}
+
+/* Form Input Styling */
+.register-form input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  font-size: 15px;
+  outline: none;
+  background-color: white;
+  color: #333;
+  transition: all var(--transition-base);
+  font-weight: 500;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.register-form input:nth-of-type(1) { animation-delay: 0.2s; }
+.register-form input:nth-of-type(2) { animation-delay: 0.25s; }
+.register-form input:nth-of-type(3) { animation-delay: 0.3s; }
+.register-form input:nth-of-type(4) { animation-delay: 0.35s; }
+.register-form input:nth-of-type(5) { animation-delay: 0.4s; }
+
+.register-form input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.register-form input::placeholder {
+  color: #999;
+  font-weight: 500;
+}
+
+/* File Input Styling */
+.file-label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+  animation: fadeInUp 0.6s ease-out 0.45s both;
+}
+
+.file-label input[type="file"] {
+  margin-top: 8px;
+  padding: 12px 14px;
+  border: 2px dashed #667eea;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.file-label input[type="file"]:hover {
+  border-color: #764ba2;
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+.file-label input[type="file"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Error Messages */
+.register-form span {
+  display: block;
+  font-size: 12px;
+  color: #dc3545;
+  margin-bottom: 10px;
+  margin-top: -8px;
+  font-weight: 600;
+  animation: shake 0.3s ease-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Submit Button */
+.register-form button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  margin-top: 8px;
+  animation: fadeInUp 0.6s ease-out 0.5s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-form button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+}
+
+.register-form button:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.register-form button:hover:not(:disabled) {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+.register-form button:active:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.register-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Login Link */
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+  animation: fadeIn 0.8s ease-out 0.6s both;
+}
+
+.login-link a {
+  text-decoration: none;
+  color: #667eea;
+  font-weight: 700;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.login-link a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width var(--transition-base);
+}
+
+.login-link a:hover {
+  color: #764ba2;
+}
+
+.login-link a:hover::after {
+  width: 100%;
+}
+
+/* Mentor Signup Link */
+.mentor-signup-link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #666;
+  animation: fadeIn 0.8s ease-out 0.65s both;
+  padding-top: 16px;
+  border-top: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.mentor-signup-link a {
+  text-decoration: none;
+  color: #764ba2;
+  font-weight: 700;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.mentor-signup-link a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transition: width var(--transition-base);
+}
+
+.mentor-signup-link a:hover {
+  color: #667eea;
+}
+
+.mentor-signup-link a:hover::after {
+  width: 100%;
+}
+
+.login-link a:hover {
+  color: #764ba2;
+}
+
+.login-link a:hover::after {
+  width: 100%;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .register-wrapper {
+    padding: 16px;
+  }
+
+  .register-form {
+    max-width: 100%;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .register-form h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .register-form input {
+    padding: 12px 14px;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .file-label {
+    font-size: 13px;
+  }
+
+  .register-form button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-wrapper {
+    padding: 12px;
+  }
+
+  .register-form {
+    padding: 24px 16px;
+    border-radius: 14px;
+  }
+
+  .register-form h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .register-form input {
+    padding: 11px 12px;
+    font-size: 13px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+  }
+
+  .register-form button {
+    padding: 11px;
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .login-link {
+    font-size: 13px;
+    margin-top: 16px;
+  }
+}
+

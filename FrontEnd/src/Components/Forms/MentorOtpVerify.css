@@ -1,0 +1,566 @@
+/* ============================================================================
+   MENTOR OTP VERIFICATION FORM - MODERN ANIMATED DESIGN
+   ============================================================================ */
+
+:root {
+  --primary-color: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-dark: #1e40af;
+  --accent-color: #8b5cf6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #9ca3af;
+  --border-color: #e5e7eb;
+  --error-color: #dc2626;
+  --success-color: #16a34a;
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mentor-otp-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background */
+.mentor-otp-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  animation: float 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mentor-otp-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  animation: float 14s ease-in-out infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main Form Container */
+.mentor-otp-form {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+  animation: fadeInUp 0.8s ease-out;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Form Header */
+.mentor-otp-form h2 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a1a;
+  animation: fadeInDown 0.6s ease-out 0.1s both;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 30px;
+  animation: fadeInDown 0.6s ease-out 0.15s both;
+  line-height: 1.5;
+}
+
+.subtitle b {
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* ============================================================================
+   FORM GROUP
+   ============================================================================ */
+
+.form-group {
+  margin-bottom: 24px;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  transition: color var(--transition-base);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  letter-spacing: 4px;
+  outline: none;
+  background-color: #ffffff !important;
+  color: #333 !important;
+  transition: all var(--transition-base);
+  text-align: center;
+}
+
+.form-group input::placeholder {
+  color: #999;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.form-group input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Input Error State */
+.form-group input.input-error {
+  border-color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.05) !important;
+}
+
+.form-group input.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Autofill fix */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #333 !important;
+  caret-color: #333 !important;
+}
+
+/* Error Message */
+.error-message {
+  display: block;
+  font-size: 12px;
+  color: #dc3545;
+  margin-top: 6px;
+  font-weight: 600;
+  animation: shake 0.3s ease-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* ============================================================================
+   VERIFY BUTTON
+   ============================================================================ */
+
+.verify-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  margin-top: 8px;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.verify-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+}
+
+.verify-btn:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.verify-btn:hover:not(:disabled) {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+.verify-btn:active:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.verify-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================================
+   OTP FOOTER & RESEND
+   ============================================================================ */
+
+.otp-footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(102, 126, 234, 0.1);
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.otp-footer p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.resend-btn {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all var(--transition-base);
+  position: relative;
+  padding: 0;
+}
+
+.resend-btn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width var(--transition-base);
+}
+
+.resend-btn:hover {
+  color: #764ba2;
+}
+
+.resend-btn:hover::after {
+  width: 100%;
+}
+
+/* Back Link */
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+  animation: fadeIn 0.8s ease-out 0.5s both;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #667eea;
+  font-weight: 700;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.back-link a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width var(--transition-base);
+}
+
+.back-link a:hover {
+  color: #764ba2;
+}
+
+.back-link a:hover::after {
+  width: 100%;
+}
+
+/* ============================================================================
+   ANIMATIONS
+   ============================================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .mentor-otp-wrapper {
+    padding: 16px;
+  }
+
+  .mentor-otp-form {
+    max-width: 100%;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .mentor-otp-form h2 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group input {
+    padding: 12px 14px;
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+
+  .verify-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .otp-footer {
+    margin-top: 18px;
+    padding-top: 18px;
+  }
+
+  .otp-footer p {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .back-link {
+    margin-top: 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mentor-otp-wrapper {
+    padding: 12px;
+  }
+
+  .mentor-otp-form {
+    padding: 24px 16px;
+    border-radius: 14px;
+  }
+
+  .mentor-otp-form h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .form-group input {
+    padding: 11px 12px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border-radius: 10px;
+  }
+
+  .verify-btn {
+    padding: 11px;
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .spinner {
+    width: 12px;
+    height: 12px;
+  }
+
+  .otp-footer {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+
+  .otp-footer p {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .resend-btn {
+    font-size: 13px;
+  }
+
+  .back-link {
+    margin-top: 12px;
+    font-size: 12px;
+  }
+
+  .error-message {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY & FOCUS STATES
+   ============================================================================ */
+
+.form-group input:focus-visible {
+  outline: none;
+}
+
+.verify-btn:focus-visible,
+.resend-btn:focus-visible,
+.back-link a:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .mentor-otp-form {
+    background: #1a1a1a;
+    border-color: rgba(102, 126, 234, 0.2);
+  }
+
+  .mentor-otp-form h2 {
+    color: #f5f7fa;
+  }
+
+  .subtitle {
+    color: #ccc;
+  }
+
+  .form-group label {
+    color: #e0e0e0;
+  }
+
+  .form-group input {
+    background-color: #2a2a2a !important;
+    border-color: #444;
+    color: #f5f7fa !important;
+  }
+
+  .form-group input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  }
+
+  .otp-footer {
+    border-color: rgba(102, 126, 234, 0.1);
+  }
+
+  .otp-footer p {
+    color: #ccc;
+  }
+
+  .back-link {
+    color: #ccc;
+  }
+}

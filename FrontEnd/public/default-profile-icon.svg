@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <style>
+      .profile-bg { fill: #e5e7eb; }
+      .profile-icon { fill: #9ca3af; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="100" cy="100" r="100" class="profile-bg"/>
+  
+  <!-- User Icon -->
+  <circle cx="100" cy="60" r="35" class="profile-icon"/>
+  <path d="M 40 180 Q 40 120 100 120 Q 160 120 160 180 Z" class="profile-icon"/>
+</svg>

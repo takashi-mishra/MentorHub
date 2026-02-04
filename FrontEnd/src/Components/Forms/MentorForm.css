@@ -1,0 +1,711 @@
+/* ============================================================================
+   MENTOR REGISTRATION FORM - MODERN CLEAN DESIGN
+   ============================================================================ */
+
+:root {
+  --primary-color: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-dark: #1e40af;
+  --accent-color: #8b5cf6;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #9ca3af;
+  --border-color: #e5e7eb;
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+}
+
+.mentor-register-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background */
+.mentor-register-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(34, 70, 128, 0.08) 0%, transparent 70%);
+  animation: float 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mentor-register-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  animation: float 14s ease-in-out infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main Form Container */
+.mentor-register-form {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(139, 92, 246, 0.08);
+  border-radius: 16px;
+  padding: 45px;
+  box-shadow: var(--shadow-xl);
+  animation: fadeInUp 0.8s ease-out;
+  border: 1px solid var(--border-color);
+  position: relative;
+  z-index: 1;
+}
+
+/* Form Header */
+.mentor-register-form h2 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #000000 !important;
+  animation: fadeInDown 0.6s ease-out 0.1s both;
+  letter-spacing: -0.02em;
+}
+
+.form-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 30px;
+  animation: fadeInDown 0.6s ease-out 0.15s both;
+}
+
+/* Form Sections */
+.form-section {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border-color);
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.form-section:nth-of-type(1) { animation-delay: 0.2s; }
+.form-section:nth-of-type(2) { animation-delay: 0.3s; }
+.form-section:nth-of-type(3) { animation-delay: 0.4s; }
+
+.form-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000 !important;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================================
+   FORM GROUPS & INPUTS
+   ============================================================================ */
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000 !important;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label {
+  color: var(--primary-color) !important;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Input Error State */
+.form-group input.input-error,
+.form-group textarea.input-error {
+  border-color: var(--danger-color);
+  background-color: rgba(239, 68, 68, 0.04) !important;
+}
+
+.form-group input.input-error:focus,
+.form-group textarea.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.08);
+}
+
+/* Error Messages */
+.error-message {
+  display: block;
+  font-size: 12px;
+  color: var(--danger-color);
+  margin-top: 6px;
+  font-weight: 600;
+  animation: shake 0.3s ease-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Help Text */
+.help-text {
+  display: block;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* ============================================================================
+   FORM ROW (FOR SIDE-BY-SIDE INPUTS)
+   ============================================================================ */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* ============================================================================
+   FILE UPLOAD SECTION
+   ============================================================================ */
+
+.file-upload-wrapper {
+  margin-bottom: 16px;
+}
+
+.file-input-label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  border: 2px dashed var(--primary-color);
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  background-color: rgba(59, 130, 246, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.file-input-label:hover {
+  border-color: var(--accent-color);
+  background-color: rgba(59, 130, 246, 0.08);
+  transform: translateY(-2px);
+}
+
+.file-input-label:active {
+  transform: translateY(0);
+}
+
+.file-input-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.file-icon {
+  font-size: 32px;
+  display: block;
+}
+
+.file-text {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000 !important;
+}
+
+.file-input-label small {
+  display: block;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.file-input-hidden {
+  display: none;
+}
+
+/* File Selected Indicator */
+.file-selected {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 10px;
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   SUBMIT BUTTON
+   ============================================================================ */
+
+.submit-btn {
+  width: 100%;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.25);
+  margin-top: 20px;
+  animation: fadeInUp 0.6s ease-out 0.5s both;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-color) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.submit-btn:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.35);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================================
+   FORM FOOTER
+   ============================================================================ */
+
+.form-footer {
+  text-align: center;
+  margin-top: 24px;
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.form-footer p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.form-footer p:last-child {
+  margin-bottom: 0;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 700;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-dark);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================================================
+   ANIMATIONS
+   ============================================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .mentor-register-wrapper {
+    padding: 20px;
+  }
+
+  .mentor-register-form {
+    max-width: 100%;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .mentor-register-form h2 {
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+
+  .form-subtitle {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .form-section {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .file-input-label {
+    padding: 24px 16px;
+  }
+
+  .file-icon {
+    font-size: 28px;
+  }
+
+  .file-text {
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    padding: 14px;
+    font-size: 15px;
+    margin-top: 18px;
+  }
+
+  .form-footer {
+    margin-top: 20px;
+  }
+
+  .form-footer p {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mentor-register-wrapper {
+    padding: 12px;
+  }
+
+  .mentor-register-form {
+    padding: 24px 16px;
+    border-radius: 14px;
+  }
+
+  .mentor-register-form h2 {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+  .form-subtitle {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .form-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 11px 12px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .file-input-label {
+    padding: 20px 12px;
+    border-radius: 10px;
+  }
+
+  .file-icon {
+    font-size: 24px;
+  }
+
+  .file-text {
+    font-size: 13px;
+  }
+
+  .file-input-label small {
+    font-size: 11px;
+  }
+
+  .help-text {
+    font-size: 11px;
+  }
+
+  .submit-btn {
+    padding: 12px;
+    font-size: 14px;
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .spinner {
+    width: 12px;
+    height: 12px;
+  }
+
+  .form-footer {
+    margin-top: 16px;
+  }
+
+  .form-footer p {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .error-message {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY & FOCUS STATES
+   ============================================================================ */
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
+  outline: none;
+}
+
+.submit-btn:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .mentor-register-form {
+    background: #e2d8d8;
+    border-color: rgba(102, 126, 234, 0.2);
+  }
+
+  .mentor-register-form h2 {
+    color: #f5f7fa;
+  }
+
+  .form-subtitle {
+    color: #222121;
+  }
+
+  .section-title {
+    color: #f5f7fa;
+  }
+
+  .form-group label {
+    color: #e0e0e0;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #f5f7fa;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  }
+
+  .file-input-label {
+    background-color: rgba(102, 126, 234, 0.05);
+    border-color: #667eea;
+  }
+
+  .file-text {
+    color: #f5f7fa;
+  }
+
+  .file-input-label small {
+    color: #aaa;
+  }
+
+  .form-footer p {
+    color: #141414;
+  }
+}
