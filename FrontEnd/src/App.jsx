@@ -10,6 +10,9 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Dashboard from "./Pages/Dashboard";
 import Profile from "./Pages/Profile";
 import MentorProfile from "./Pages/MentorProfile";
+import Chat from './Pages/Chat.jsx';
+import ChatPage from "./Pages/ChatPage.jsx";
+import MentorChat from './Pages/MentorChat.jsx';
 import MentorDetails from "./Components/Mentor list/MentorDetails";
 import SearchResults from "./Components/Mentor list/SearchResults";
 // files imported
@@ -21,6 +24,7 @@ import MentorOtpVerify from "./Components/Forms/MentorOtpVerify.jsx";
 import MentorLoginForm from "./Components/Forms/MentorLoginForm.jsx";
 import MentorPrivateRoute from "./Components/PrivateRoute/MentorPrivateRoute.jsx";
 import SharedPrivateRoute from "./Components/PrivateRoute/SharedPrivateRoute.jsx";
+
 
 
 function App() {
@@ -42,11 +46,15 @@ function App() {
           <Route path="/mentor/:id" element={<MentorDetails />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/mentor-chat" element={<MentorChat/>} />
+          <Route path="/chat-window" element={<ChatPage />} />
+
         </Route>
 
         {/* --- Exclusive Mentor Routes (Sirf Mentor ke liye) --- */}
         <Route element={<MentorPrivateRoute />}>
-          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/mentor-profile" element={<MentorProfile />} />
         </Route>
 

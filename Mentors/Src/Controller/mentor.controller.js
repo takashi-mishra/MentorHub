@@ -2,6 +2,9 @@ const Mentor = require("../Models/mentor.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { uploadFile } = require("../Services/imagekit.service");
+const CallSession = require("../Models/CallSession");
+const { generateZegoToken } = require("../Services/zegoToken");
+const { v4: uuidv4 } = require("uuid");
 const {
   generateOTP,
   saveOTP,
@@ -109,7 +112,7 @@ exports.mentorLogin = async (req, res) => {
   );
    res.cookie('token', token, { httpOnly: true });
 
-  res.json({ message: "Login successful", token });
+  res.json({ message: "Login successful", token,mentorId: mentor._id });
 };
 
 // Get logged-in mentor profile
@@ -377,4 +380,66 @@ module.exports.addReview = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: "Failed", error: error.message });
     }
+};
+
+
+
+
+module.exports.ReciveCallData = async (req, res) => {
+  try {
+    const { mentorId } = req.params;
+    // Note: userId aur userName aapke auth middleware se aana chahiye (req.user)
+    // Agar body se bhej rahe ho toh ye sahi hai:
+    const { userId, userName, callType } = req.body;
+
+    if (!userId || !userName || !callType) {
+      return res.status(400).json({
+        success: false,
+        message: "Missing required fields",
+      });
+    }
+
+    const mentor = await Mentor.findById(mentorId).select("fullName");
+    if (!mentor) {
+      return res.status(404).json({
+        success: false,
+        message: "Mentor not found",
+      });
+    }
+
+    const roomId = `room_${uuidv4()}`;
+
+    const callSession = await CallSession.create({
+      userId,
+      userName,
+      mentorId,
+      callType,
+      roomId,
+      status: "pending",
+    });
+
+    // Response structure ko frontend ke mutabik set kiya hai
+   // backend controller rewrite
+// backend controller
+return res.status(200).json({
+  success: true,
+  message: "Call data sent!",
+  data: {  // <-- Sirf ek baar data likhein
+    callId: callSession._id,
+    roomId,
+    callType,
+    userId,
+    userName,
+    mentorId,
+    mentorName: mentor.fullName,
+  },
+});
+
+  } catch (error) {
+    console.error("Receive Call Error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
 };

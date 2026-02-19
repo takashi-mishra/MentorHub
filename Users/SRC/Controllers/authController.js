@@ -253,3 +253,44 @@ module.exports.sendReviewData = async (req, res) => {
         });
     }
 };
+
+// send data to mentor service for video call using zegocloud
+module.exports.sendCallData = async(req,res)=>{
+    try {
+        const userId = req.user._id;
+        const { mentorId } = req.params;
+        const { callType } = req.body; // e.g., "video" or "audio"
+
+         const user = await userModel.findById(userId).select("FullName");
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        // Send data to mentor service for video call
+        const serviceUrl = `${process.env.MENTOR_SERVICE_URL}/mentorRegister/receiveCallData/${mentorId}`;
+        console.log("Calling Mentor Service at:", serviceUrl);
+
+        const callData = {
+            userId: userId,
+            userName: user.FullName,
+            mentorId: mentorId,
+            callType: callType
+        };
+
+        const response = await axios.post(serviceUrl, callData);
+
+        return res.status(200).json({
+            success: true,
+            message: "Call data sent!",
+            data: response.data
+        });
+
+    } catch (error) {
+          console.error("Detailed Error:", error.response?.data || error.message);
+        
+        return res.status(500).json({ 
+            message: "Server Error while calling", 
+            error: error.response?.data?.message || error.message 
+        });
+    }
+}

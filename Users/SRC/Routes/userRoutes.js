@@ -47,5 +47,9 @@ router.get('/allUsers',authController.getAllUsers);
 // send data of review to the mentor services
 router.post('/sendReviewData/:mentorId', auth_middleware.authenticateUser, authController.sendReviewData);
 
+// sending user data and mentor data for video call using zegocloud
+router.post("/sendCallData/:mentorId", auth_middleware.authenticateUser, authController.sendCallData);
+
+
 
 module.exports = router;

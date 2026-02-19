@@ -1,0 +1,161 @@
+.container {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 100px 5% 40px 5%; /* Top padding increased to clear Navbar */
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+.header p {
+  color: #64748b;
+  margin-top: 5px;
+}
+
+.notificationBell {
+  background: white;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  position: relative;
+  cursor: pointer;
+}
+
+.bellDot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Stats Cards */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.iconBox {
+  padding: 15px;
+  border-radius: 16px;
+}
+
+.blue { background: #eff6ff; color: #3b82f6; }
+.purple { background: #faf5ff; color: #a855f7; }
+.green { background: #f0fdf4; color: #22c55e; }
+
+.card h2 { font-size: 1.8rem; margin: 0; color: #1e293b; }
+.card p { color: #64748b; font-size: 0.9rem; margin: 0; font-weight: 500; }
+
+/* Main Content */
+.mainGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+.recentRequests, .quickActions {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.quickActions {
+  background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
+  color: white;
+}
+
+.actionButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.actionButtons button {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.actionButtons button:hover { background: rgba(255, 255, 255, 0.25); }
+
+/* Call Modal */
+.callModal {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 340px;
+  background: white;
+  border-radius: 24px;
+  padding: 25px;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  border-left: 8px solid #22c55e;
+  z-index: 9999;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.pulseIcon {
+  background: #f0fdf4;
+  color: #22c55e;
+  padding: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.btnGroup { display: flex; gap: 10px; }
+.acceptBtn { flex: 2; background: #22c55e; color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+.rejectBtn { flex: 1; background: #fee2e2; color: #ef4444; border: none; padding: 12px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+
+@media (max-width: 768px) {
+  .mainGrid { grid-template-columns: 1fr; }
+  .container { padding-top: 90px; }
+}

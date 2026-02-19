@@ -29,5 +29,6 @@ exports.verifyOtp = async (req, res) => {
   res.json({
     message: "OTP verified successfully",
     token,
+   mentorId: mentor._id
   });
 };

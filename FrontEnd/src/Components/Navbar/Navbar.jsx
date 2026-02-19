@@ -78,7 +78,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className={styles.menu}>
           <li><Link to="/" className={styles.link}>Home</Link></li>
-          <li>Chat</li>
+          <li><Link to="/mentor-chat" className={styles.link}>Chat</Link></li>
           <li>Courses</li>
 
           {!isUserLoggedIn && !isMentorLoggedIn ? (
@@ -115,7 +115,7 @@ const Navbar = () => {
                 <div className={styles.avatarMenu} onMouseLeave={() => setAvatarOpen(false)}>
                   <p className={styles.mentorEmail}>{mentorEmail}</p>
                   <button className={styles.menuItem} onClick={() => { setAvatarOpen(false); navigate('/mentor-profile'); }}>Profile</button>
-                  <button className={styles.menuItem} onClick={() => { setAvatarOpen(false); navigate('/mentor-dashboard'); }}>Dashboard</button>
+                  <button className={styles.menuItem} onClick={() => { setAvatarOpen(false); navigate('/dashboard'); }}>Dashboard</button>
                   <button className={styles.menuItem} onClick={() => { setAvatarOpen(false); handleMentorLogout(); }}>Logout</button>
                 </div>
               )}

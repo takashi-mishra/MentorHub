@@ -49,6 +49,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (newToken) => {
     if (!newToken) return;
+    // storingd token and userId to localStorage
     localStorage.setItem("token", newToken);
     setToken(newToken);
     await fetchProfile(newToken);

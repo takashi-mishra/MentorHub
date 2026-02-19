@@ -33,6 +33,7 @@ const MentorLoginForm = () => {
       if (res.data.token) {
         localStorage.setItem("mentorToken", res.data.token);
         localStorage.setItem("mentorEmail", data.email);
+        localStorage.setItem("mentorId",res.data.mentorId); // Mentor ID bhi store kar rahe hain
       }
 
       toast.success("Mentor login successful");

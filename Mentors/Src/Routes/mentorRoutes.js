@@ -4,7 +4,7 @@ const upload = require("../middleware/upload.middleware");
 const {authMentor} = require("../Middleware/AuthMentor");
 const {searchMentors,mentorLogout} = require("../Controller/mentor.controller");
 const {addReview} = require("../Controller/mentor.controller");
-
+const { ReciveCallData } = require("../Controller/mentor.controller");
 
 const {
   registerMentor,
@@ -17,6 +17,7 @@ const {
 } = require("../Controller/mentor.controller");
 const { verifyOtp } = require("../Controller/Otpveriy");
 const { body } = require("express-validator");
+const { sendCallData } = require("../../../Users/SRC/Controllers/authController");
 
 /**
  * @route   POST /mentorRegister/register
@@ -73,6 +74,10 @@ router.get("/mentorLogout", authMentor,mentorLogout);
 
 // reciving review from user services
 router.post("/addReview/:mentorId",addReview)
+
+// reciving call data from user services for video call using zegocloud
+router.post("/receiveCallData/:mentorId",ReciveCallData)
+
 
 
 module.exports = router;

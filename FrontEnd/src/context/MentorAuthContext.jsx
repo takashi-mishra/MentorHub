@@ -49,6 +49,7 @@ export const MentorAuthProvider = ({ children }) => {
   const mentorLogin = async (newToken) => {
     if (!newToken) return;
     localStorage.setItem("mentorToken", newToken);
+   
     setMentorToken(newToken);
     await fetchMentorProfile(newToken);
   };

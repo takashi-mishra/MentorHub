@@ -6,12 +6,10 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 dotenv.config();
 
-
-//requiring routes 
+// Requiring routes 
 const mentorRoutes = require('./Routes/mentorRoutes');
 
-
-//middleware
+// Middleware
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,12 +19,11 @@ app.use(cors({
   credentials: true,
 }));
 
-// routes
+// Routes
 app.get('/', (req, res) => {
-    res.send('Mentor service running on port 5000');
+    res.send('Mentor service running on port 8000'); // Fixed port in message
 });
 
 app.use('/mentorRegister', mentorRoutes);
-
 
 module.exports = app;
